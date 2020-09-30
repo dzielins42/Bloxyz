@@ -132,7 +132,7 @@ class LceViewMixin(
     }
 
     companion object {
-        private val defaultErrorMapper: LceErrorMapper = object : LceErrorMapper {
+        val defaultErrorMapper: LceErrorMapper = object : LceErrorMapper {
             override fun getErrorMessage(error: Throwable?): String? {
                 return error?.localizedMessage
             }

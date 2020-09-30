@@ -2,30 +2,21 @@ package pl.dzielins42.bloxyz
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import pl.dzielins42.bloxyz.lce.HasLce
+import pl.dzielins42.bloxyz.fragment.LceFragment
 import pl.dzielins42.bloxyz.lce.LceViewMixin
-import pl.dzielins42.bloxyz.lce.setLceContentView
 
-class MainActivity : AppCompatActivity(), HasLce {
+class MainActivity : AppCompatActivity() {
 
     private lateinit var lceMixin: LceViewMixin
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setLceContentView(R.layout.activity_main)
-        lceMixin = LceViewMixin(this)
+        setContentView(R.layout.activity_main)
+
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.container, LceFragment(R.layout.fragment_test))
+                .commitNow()
+        }
     }
-
-    //region HasLce
-
-    override fun showLoading(animate: Boolean) =
-        lceMixin.showLoading(animate)
-
-    override fun showContent(animate: Boolean) =
-        lceMixin.showContent(animate)
-
-    override fun showError(error: Throwable?, animate: Boolean) =
-        lceMixin.showError(error, animate)
-
-    //endregion
 }

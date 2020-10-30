@@ -1,4 +1,4 @@
-package pl.dzielins42.bloxyz
+package pl.dzielins42.bloxyz.sample
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

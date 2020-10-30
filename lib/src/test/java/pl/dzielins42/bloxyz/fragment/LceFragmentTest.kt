@@ -201,7 +201,7 @@ class LceFragmentTest {
 
     class LceFragmentFactory : FragmentFactory() {
         override fun instantiate(classLoader: ClassLoader, className: String): Fragment {
-            return LceFragment(R.layout.fragment_test)
+            return LceFragment(R.layout.view_lce_error)
         }
     }
 }

@@ -37,36 +37,4 @@
         <include layout="@layout/view_lce_error" />
     </FrameLayout>
 
-    <!-- region Debug -->
-    <Button
-        android:id="@+id/debugLceLoadingButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Loading"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/debugLceContentButton"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/debugLceContentButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Content"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/debugLceErrorButton"
-        app:layout_constraintStart_toEndOf="@id/debugLceLoadingButton" />
-
-    <Button
-        android:id="@+id/debugLceErrorButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Error"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/debugLceContentButton" />
-    <!-- endregion -->
-
 </androidx.constraintlayout.widget.ConstraintLayout>

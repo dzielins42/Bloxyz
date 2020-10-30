@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import pl.dzielins42.bloxyz.BuildConfig
 import pl.dzielins42.bloxyz.R
 
 class LceViewMixin(
@@ -54,47 +53,6 @@ class LceViewMixin(
         view.findViewById(R.id.errorView),
         errorMapper
     )
-
-    init {
-        if (BuildConfig.DEBUG) {
-            setupDebugControls()
-        } else {
-            hideDebugControls()
-        }
-    }
-
-    private fun setupDebugControls() {
-        lceContainerView.findViewById<View>(R.id.debugLceLoadingButton)?.apply {
-            visibility = View.VISIBLE
-            setOnClickListener {
-                showLoading()
-            }
-        }
-        lceContainerView.findViewById<View>(R.id.debugLceContentButton)?.apply {
-            visibility = View.VISIBLE
-            setOnClickListener {
-                showContent()
-            }
-        }
-        lceContainerView.findViewById<View>(R.id.debugLceErrorButton)?.apply {
-            visibility = View.VISIBLE
-            setOnClickListener {
-                showError(Exception("Generic exception"))
-            }
-        }
-    }
-
-    private fun hideDebugControls() {
-        lceContainerView.findViewById<View>(R.id.debugLceLoadingButton)?.apply {
-            visibility = View.GONE
-        }
-        lceContainerView.findViewById<View>(R.id.debugLceContentButton)?.apply {
-            visibility = View.GONE
-        }
-        lceContainerView.findViewById<View>(R.id.debugLceErrorButton)?.apply {
-            visibility = View.GONE
-        }
-    }
 
     override fun showLoading(animate: Boolean) {
         if (animate && Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {

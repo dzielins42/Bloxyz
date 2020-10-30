@@ -36,10 +36,11 @@ class LceViewMixin(
         fragment: Fragment,
         errorMapper: LceErrorMapper = defaultErrorMapper
     ) : this(
-        fragment.view!!.findViewById<ViewGroup>(R.id.lceContainerView),
-        fragment.view!!.findViewById(R.id.loadingView),
-        fragment.view!!.findViewById(R.id.contentView),
-        fragment.view!!.findViewById(R.id.errorView),
+
+        fragment.requireView().findViewById<ViewGroup>(R.id.lceContainerView),
+        fragment.requireView().findViewById(R.id.loadingView),
+        fragment.requireView().findViewById(R.id.contentView),
+        fragment.requireView().findViewById(R.id.errorView),
         errorMapper
     )
 

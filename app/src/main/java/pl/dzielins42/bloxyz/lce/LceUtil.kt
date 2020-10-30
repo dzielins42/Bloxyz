@@ -15,7 +15,7 @@ fun wrapInLce(
     val lceView = inflater.inflate(R.layout.view_lce, container, false)
     lceView.findViewById<ViewGroup>(R.id.contentView)?.let {
         inflater.inflate(contentLayoutId, it)
-    } ?: IllegalStateException("ViewGroup with R.id.contentView not found")
+    } ?: throw IllegalStateException("ViewGroup with R.id.contentView not found")
     return lceView
 }
 
@@ -24,5 +24,5 @@ fun Activity.setLceContentView(@LayoutRes contentLayoutId: Int) {
     val inflater = LayoutInflater.from(this)
     findViewById<ViewGroup>(R.id.contentView)?.let {
         inflater.inflate(contentLayoutId, it)
-    } ?: IllegalStateException("ViewGroup with R.id.contentView not found")
+    } ?: throw IllegalStateException("ViewGroup with R.id.contentView not found")
 }
